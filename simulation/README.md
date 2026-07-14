@@ -16,12 +16,17 @@
 - 最终计分
 - 标准版与扩展包JSON卡表
 - JSON数量与结构校验
+- 部署与进攻合法性判断
+- 回合阶段状态机
+- 效果执行注册框架
+- 抽牌、弃牌、击败、返回、获得单位、区域保护等基础效果处理
 - 基础单元测试和CI
 
 当前尚未完成：
 
 - 全部效果ID执行器
-- 完整回合AI
+- 效果目标自动选择
+- 完整回合执行器
 - human_like策略
 - stress_attack策略
 - 批量3000局运行器
@@ -29,7 +34,25 @@
 
 在上述内容完成前，不得将本目录输出称为正式平衡测试结果。
 
-## 目标入口
+## 当前代码入口
+
+```text
+engine/actions.py
+engine/turns.py
+engine/effects.py
+```
+
+效果执行使用：
+
+```text
+CardDefinition.effect_id
+EffectContext
+execute_effect()
+```
+
+不得使用具体卡名分发效果。
+
+## 目标批量入口
 
 ```text
 python -m simulation.run \
@@ -49,5 +72,3 @@ python -m simulation.run \
 data/core_set.json
 data/expansion_1.json
 ```
-
-模拟代码不得使用具体卡名判断效果。
