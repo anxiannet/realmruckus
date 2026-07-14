@@ -1,12 +1,39 @@
 # Realm Ruckus
 
-Realm Ruckus is the standalone repository for the English fantasy skin derived from the card game project 《夕妖：抢地盘》.
+`Realm Ruckus` is an independent English fantasy card-game project derived from the mechanics of 《夕妖：抢地盘》.
 
-Migration source:
+## Repository structure
 
 ```text
-anxiannet/qiangdipan
-皮肤主题/Realm Ruckus/
+/
+├── README.md
+├── index.html and future website source files
+├── public/
+│   └── assets/
+│       └── visual-anchor/
+└── 文档/
+    ├── README.md
+    ├── Realm Ruckus主题方案.md
+    ├── Realm Ruckus世界观规范.md
+    ├── Realm Ruckus品牌检索记录.md
+    ├── Realm Ruckus品牌与Logo规范.md
+    ├── Realm Ruckus标准版卡表.md
+    ├── Realm Ruckus英文核心规则.md
+    ├── Realm Ruckus英文游戏手册.md
+    ├── Realm Ruckus英文指南卡.md
+    ├── Realm Ruckus视觉与UI规范.md
+    ├── Realm Ruckus单卡美术方案.md
+    ├── Realm Ruckus包装规范.md
+    ├── Realm Ruckus制作与审核流程.md
+    └── 视觉锚点/
 ```
 
-Authoritative gameplay mechanics remain maintained in the source project unless explicitly migrated and versioned here.
+## Source relationship
+
+Original mechanics repository:
+
+```text
+https://github.com/anxiannet/qiangdipan
+```
+
+The original repository remains the authoritative source for shared mechanics and retains a migration index. Realm Ruckus-specific documents and assets are maintained here after migration.
