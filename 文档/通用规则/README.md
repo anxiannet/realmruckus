@@ -25,14 +25,18 @@ data/core_set.json
 data/expansion_1.json
 ```
 
+已核对的AI静态优先级：
+
+```text
+data/ai_priorities.json
+```
+
 当前测试结果的等价结构化副本：
 
 ```text
 data/baselines/current_formal.json
 data/baselines/current_dual_modes.json
 ```
-
-AI静态优先级必须等待具体卡名到 `mechanic_id` 的逐项映射核对完成后再迁移，不得自行分配。
 
 ## 文件列表
 
@@ -68,19 +72,20 @@ AI卡牌优先级模型.md
 7. `标准组件模型.md`
 8. `data/core_set.json`
 9. `data/expansion_1.json`
-10. `通用标准版卡表.md`
-11. `通用扩展包卡表.md`
-12. `双人模式参数.md`
-13. `数学与平衡模型.md`
-14. `技能强度评分系统.md`
-15. `AI卡牌优先级模型.md`
-16. `战斗方案评分模型.md`
-17. `测试与验证规范.md`
-18. `data/baselines/current_formal.json`
-19. `data/baselines/current_dual_modes.json`
-20. `当前测试基线.md`
-21. `通用生产与审核流程.md`
-22. `迁移来源记录.md`
+10. `data/ai_priorities.json`
+11. `通用标准版卡表.md`
+12. `通用扩展包卡表.md`
+13. `双人模式参数.md`
+14. `数学与平衡模型.md`
+15. `技能强度评分系统.md`
+16. `AI卡牌优先级模型.md`
+17. `战斗方案评分模型.md`
+18. `测试与验证规范.md`
+19. `data/baselines/current_formal.json`
+20. `data/baselines/current_dual_modes.json`
+21. `当前测试基线.md`
+22. `通用生产与审核流程.md`
+23. `迁移来源记录.md`
 
 ## 维护原则
 
