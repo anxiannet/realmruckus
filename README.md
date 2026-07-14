@@ -1,43 +1,61 @@
-# Realm Ruckus
+# Realm Ruckus / Universal Territory Card Engine
 
-`Realm Ruckus` is an independent English fantasy card-game project derived from the mechanics of 《夕妖：抢地盘》.
+This repository is now the primary repository for the shared game mechanics, rules, mathematical models, simulation code and validation baselines used by multiple product expressions.
+
+Current expressions:
+
+```text
+《夕妖：抢地盘》
+Realm Ruckus
+```
 
 ## Repository structure
 
-The repository root is the website root.
+The repository root is the website and code root.
 
 ```text
 /
 ├── README.md
 ├── index.html
 ├── assets/
-│   └── visual-anchor/
-│       └── realm-ruckus-visual-anchor-v1.png
+├── engine/
+├── simulation/
+├── tests/
 └── 文档/
     ├── README.md
-    ├── Realm Ruckus主题方案.md
-    ├── Realm Ruckus世界观规范.md
-    ├── Realm Ruckus品牌检索记录.md
-    ├── Realm Ruckus品牌与Logo规范.md
-    ├── Realm Ruckus标准版卡表.md
-    ├── Realm Ruckus英文核心规则.md
-    ├── Realm Ruckus英文游戏手册.md
-    ├── Realm Ruckus英文指南卡.md
-    ├── Realm Ruckus视觉与UI规范.md
-    ├── Realm Ruckus单卡美术方案.md
-    ├── Realm Ruckus包装规范.md
-    ├── Realm Ruckus制作与审核流程.md
-    └── 视觉锚点/
+    ├── 当前项目进度.md
+    ├── 通用规则/
+    │   ├── README.md
+    │   ├── 核心机制.md
+    │   ├── 规则状态机.md
+    │   ├── 标准组件模型.md
+    │   ├── 通用标准版卡表.md
+    │   ├── 通用扩展包卡表.md
+    │   ├── 双人模式参数.md
+    │   ├── 数学与平衡模型.md
+    │   ├── 测试与验证规范.md
+    │   ├── 历史测试基线.md
+    │   └── 迁移来源记录.md
+    └── Realm Ruckus专属文档
 ```
 
-Website code and deployable static assets belong in the repository root. Project rules, design specifications, production records and source documentation belong in `文档/`.
+## Authority
 
-## Source relationship
+The universal rules layer in `文档/通用规则/` is the authoritative source for:
 
-Original mechanics repository:
+- core mechanics;
+- standard and expansion mechanism tables;
+- turn and combat flow;
+- mathematical models;
+- simulation and regression standards;
+- historical test baselines.
+
+Product expressions may replace names, language, artwork, UI, packaging and card-code prefixes. They must not maintain parallel copies of the shared mechanics.
+
+Legacy expression repository:
 
 ```text
 https://github.com/anxiannet/qiangdipan
 ```
 
-The original repository remains the authoritative source for shared mechanics and retains a migration index. Realm Ruckus-specific documents and assets are maintained here after migration.
+That repository remains the production repository for the 《夕妖：抢地盘》 expression, but no longer owns the universal mechanics layer.
