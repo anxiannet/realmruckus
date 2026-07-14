@@ -1,9 +1,18 @@
 from __future__ import annotations
 
 import itertools
-from dataclasses import replace
 
 from .models import AttackResult, Unit
+
+
+def _snapshot(unit: Unit, damage: int) -> Unit:
+    return Unit(
+        mechanic_id=unit.mechanic_id,
+        level=int(unit.level),
+        owner=unit.owner,
+        damage=damage,
+        uid=unit.uid,
+    )
 
 
 def resolve_duel(attacker: Unit, defender: Unit) -> None:
@@ -81,11 +90,11 @@ def generate_attack_results(
             ]
             if position >= len(attacker_order) or not live_defenders:
                 attacker_snapshots = [
-                    replace(unit, damage=attacker_damage[index])
+                    _snapshot(unit, attacker_damage[index])
                     for index, unit in enumerate(attackers)
                 ]
                 defender_snapshots = [
-                    replace(unit, damage=defender_damage[index])
+                    _snapshot(unit, defender_damage[index])
                     for index, unit in enumerate(defenders)
                 ]
                 surviving_attackers = tuple(
@@ -143,8 +152,8 @@ def generate_attack_results(
         key = (
             result.attack_order,
             result.target_order,
-            tuple(sorted(unit.mechanic_id for unit in result.attacker_survivors)),
-            tuple(sorted(unit.mechanic_id for unit in result.defender_survivors)),
+            tuple(sorted(unit.uid for unit in result.attacker_survivors)),
+            tuple(sorted(unit.uid for unit in result.defender_survivors)),
         )
         unique[key] = result
     return tuple(unique.values())
