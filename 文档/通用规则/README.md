@@ -31,10 +31,9 @@ data/expansion_1.json
 data/ai_priorities.json
 ```
 
-当前测试结果的等价结构化副本：
+当前可追溯测试结果：
 
 ```text
-data/baselines/current_formal.json
 data/baselines/current_dual_modes.json
 ```
 
@@ -81,11 +80,10 @@ AI卡牌优先级模型.md
 16. `AI卡牌优先级模型.md`
 17. `战斗方案评分模型.md`
 18. `测试与验证规范.md`
-19. `data/baselines/current_formal.json`
-20. `data/baselines/current_dual_modes.json`
-21. `当前测试基线.md`
-22. `通用生产与审核流程.md`
-23. `迁移来源记录.md`
+19. `data/baselines/current_dual_modes.json`
+20. `当前测试基线.md`
+21. `通用生产与审核流程.md`
+22. `迁移来源记录.md`
 
 ## 维护原则
 
