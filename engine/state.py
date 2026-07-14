@@ -26,7 +26,7 @@ class GameState:
             area = self.area_deck.pop(0)
             area.owner = None
             area.units.clear()
-            area.protected = False
+            area.clear_protection()
             self.center.append(area)
 
     def recycle_empty_areas(self) -> None:
@@ -39,7 +39,7 @@ class GameState:
                         continue
                     self.controlled[player].remove(area)
                     area.owner = None
-                    area.protected = False
+                    area.clear_protection()
                     self.area_deck.append(area)
                     self.rng.shuffle(self.area_deck)
                     self.area_returns += 1
@@ -57,7 +57,7 @@ class GameState:
 
     def final_score(self, player: int) -> tuple[int, int, int, int]:
         areas = self.controlled[player]
-        total_levels = sum(unit.level for area in areas for unit in area.units)
+        total_levels = sum(int(unit.level) for area in areas for unit in area.units)
         by_group: dict[str, int] = {}
         for area in areas:
             by_group[area.group_id] = by_group.get(area.group_id, 0) + 1
