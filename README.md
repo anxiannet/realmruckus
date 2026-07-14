@@ -4,13 +4,15 @@
 
 ## Repository structure
 
+The repository root is the website root.
+
 ```text
 /
 ├── README.md
-├── index.html and future website source files
-├── public/
-│   └── assets/
-│       └── visual-anchor/
+├── index.html
+├── assets/
+│   └── visual-anchor/
+│       └── realm-ruckus-visual-anchor-v1.png
 └── 文档/
     ├── README.md
     ├── Realm Ruckus主题方案.md
@@ -27,6 +29,8 @@
     ├── Realm Ruckus制作与审核流程.md
     └── 视觉锚点/
 ```
+
+Website code and deployable static assets belong in the repository root. Project rules, design specifications, production records and source documentation belong in `文档/`.
 
 ## Source relationship
 
