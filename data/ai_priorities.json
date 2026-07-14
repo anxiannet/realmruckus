@@ -1,0 +1,42 @@
+{
+  "rules_version": "V1.3",
+  "source_file": "测试代码/qdp_sim/data.py",
+  "source_sha": "9f2a554bd0f5216c29d75b13ffa2dc94a42ab8d1",
+  "mapping_basis": {
+    "core": "规则/V1.3-基础卡表.md @ 0f394718ec91a4abfa4e5770e23e95f5fcfbd5ed",
+    "expansion_1": "规则/扩展包一-火云再起卡表.md @ 330051118b4f9e38b72f640bd0826cc94ca81b30"
+  },
+  "priorities": [
+    {"mechanic_id":"CORE-U01","ai_priority":38},
+    {"mechanic_id":"CORE-U02","ai_priority":36},
+    {"mechanic_id":"CORE-U03","ai_priority":28},
+    {"mechanic_id":"CORE-U04","ai_priority":32},
+    {"mechanic_id":"CORE-U05","ai_priority":34},
+    {"mechanic_id":"CORE-U06","ai_priority":50},
+    {"mechanic_id":"CORE-U07","ai_priority":54},
+    {"mechanic_id":"CORE-U08","ai_priority":52},
+    {"mechanic_id":"CORE-U09","ai_priority":48},
+    {"mechanic_id":"CORE-U10","ai_priority":70},
+    {"mechanic_id":"CORE-U11","ai_priority":62},
+    {"mechanic_id":"CORE-U12","ai_priority":60},
+    {"mechanic_id":"CORE-U13","ai_priority":66},
+    {"mechanic_id":"CORE-U14","ai_priority":68},
+    {"mechanic_id":"CORE-U15","ai_priority":80},
+    {"mechanic_id":"CORE-U16","ai_priority":82},
+    {"mechanic_id":"CORE-U17","ai_priority":78},
+    {"mechanic_id":"CORE-U18","ai_priority":76},
+    {"mechanic_id":"CORE-U19","ai_priority":88},
+    {"mechanic_id":"CORE-E01","ai_priority":46},
+    {"mechanic_id":"CORE-E02","ai_priority":90},
+    {"mechanic_id":"CORE-E03","ai_priority":94},
+    {"mechanic_id":"CORE-E04","ai_priority":86},
+    {"mechanic_id":"EXP1-U01","ai_priority":35},
+    {"mechanic_id":"EXP1-U02","ai_priority":35},
+    {"mechanic_id":"EXP1-U03","ai_priority":44},
+    {"mechanic_id":"EXP1-U04","ai_priority":44},
+    {"mechanic_id":"EXP1-U05","ai_priority":64},
+    {"mechanic_id":"EXP1-U06","ai_priority":84},
+    {"mechanic_id":"EXP1-U07","ai_priority":92},
+    {"mechanic_id":"EXP1-E01","ai_priority":96}
+  ]
+}
