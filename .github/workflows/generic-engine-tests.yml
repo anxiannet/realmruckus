@@ -1,0 +1,43 @@
+name: Generic Engine Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'engine/**'
+      - 'data/**'
+      - 'tests/**'
+      - '.github/workflows/generic-engine-tests.yml'
+  pull_request:
+    paths:
+      - 'engine/**'
+      - 'data/**'
+      - 'tests/**'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m compileall engine tests
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate machine-readable decks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from engine import load_deck
+          root = Path('.')
+          core = load_deck(root / 'data/core_set.json')
+          expansion = load_deck(root / 'data/expansion_1.json')
+          assert core.card_count == 40
+          assert expansion.card_count == 10
+          print('deck validation ok')
+          PY
