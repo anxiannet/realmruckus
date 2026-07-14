@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "rules_version": "V1.3",
+  "baseline_version": "GEN-BASELINE-FORMAL-001",
+  "model": "human_like",
+  "games_per_configuration": 3000,
+  "seed": 20260713,
+  "area_count": 12,
+  "center_size": 3,
+  "total_games": 18000,
+  "configurations": [
+    {"deck":"core","deck_size":40,"players":2,"direct_wins":2885,"settlements":53,"draws":19,"timeouts":43,"average_turns":26.57,"deck_exhaustion_rate":0.2970,"average_area_returns":4.94},
+    {"deck":"core","deck_size":40,"players":3,"direct_wins":2916,"settlements":26,"draws":29,"timeouts":29,"average_turns":23.91,"deck_exhaustion_rate":0.3097,"average_area_returns":4.94},
+    {"deck":"core","deck_size":40,"players":4,"direct_wins":2906,"settlements":47,"draws":33,"timeouts":14,"average_turns":24.51,"deck_exhaustion_rate":0.4167,"average_area_returns":5.49},
+    {"deck":"core_plus_expansion_1","deck_size":50,"players":2,"direct_wins":2847,"settlements":87,"draws":11,"timeouts":55,"average_turns":29.77,"deck_exhaustion_rate":0.2353,"average_area_returns":7.17},
+    {"deck":"core_plus_expansion_1","deck_size":50,"players":3,"direct_wins":2943,"settlements":27,"draws":13,"timeouts":17,"average_turns":24.45,"deck_exhaustion_rate":0.2057,"average_area_returns":6.28},
+    {"deck":"core_plus_expansion_1","deck_size":50,"players":4,"direct_wins":2939,"settlements":22,"draws":21,"timeouts":18,"average_turns":25.49,"deck_exhaustion_rate":0.2840,"average_area_returns":6.84}
+  ]
+}
