@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "rules_version": "V1.3",
+  "deck_version": "GEN-CORE-001",
+  "deck_id": "core",
+  "cards": [
+    {"mechanic_id":"CORE-U01","kind":"unit","level":1,"copies":2,"effect_id":"RETURN_OWN_UNIT","timing":"on_enter","parameters":{"count":1,"exclude_self":true}},
+    {"mechanic_id":"CORE-U02","kind":"unit","level":1,"copies":2,"effect_id":"DRAW_THEN_DISCARD","timing":"on_enter","parameters":{"draw":1,"discard":1}},
+    {"mechanic_id":"CORE-U03","kind":"unit","level":1,"copies":2,"effect_id":"VIEW_RANDOM_HAND_CARD","timing":"on_enter","parameters":{"target":"another_player","count":1}},
+    {"mechanic_id":"CORE-U04","kind":"unit","level":1,"copies":2,"effect_id":"SOCIAL_CALL_EXCHANGE","timing":"on_enter","parameters":{"each_draw":1,"each_discard":1}},
+    {"mechanic_id":"CORE-U05","kind":"unit","level":1,"copies":2,"effect_id":"SOCIAL_CALL_DRAW","timing":"on_enter","parameters":{"self_draw":1,"target_draw":1}},
+    {"mechanic_id":"CORE-U06","kind":"unit","level":2,"copies":2,"effect_id":"RECOVER_UNIT_FROM_DISCARD","timing":"on_enter","parameters":{"count":1,"level":1}},
+    {"mechanic_id":"CORE-U07","kind":"unit","level":2,"copies":2,"effect_id":"DEFEAT_UNIT_BY_LEVEL","timing":"on_enter","parameters":{"count":1,"level_exact":1}},
+    {"mechanic_id":"CORE-U08","kind":"unit","level":2,"copies":2,"effect_id":"RETURN_UNIT_BY_LEVEL","timing":"on_enter","parameters":{"count":1,"level_exact":1}},
+    {"mechanic_id":"CORE-U09","kind":"unit","level":2,"copies":2,"effect_id":"LOOK_TOP_AND_CHOOSE","timing":"on_enter","parameters":{"look":2,"draw":1,"return_rest":"deck"}},
+    {"mechanic_id":"CORE-U10","kind":"unit","level":3,"copies":2,"effect_id":"TAKE_RANDOM_HAND_CARD","timing":"on_enter","parameters":{"target":"another_player","count":1,"ownership_changes":true}},
+    {"mechanic_id":"CORE-U11","kind":"unit","level":3,"copies":2,"effect_id":"SECRET_SWAP_HAND_CARD","timing":"on_enter","parameters":{"participants":2,"each_choose":1}},
+    {"mechanic_id":"CORE-U12","kind":"unit","level":3,"copies":2,"effect_id":"REPLACE_DISCARD_WITH_DECK_SHUFFLE","timing":"when_defeated","parameters":{"applies_to":"self"}},
+    {"mechanic_id":"CORE-U13","kind":"unit","level":3,"copies":2,"effect_id":"TAKE_UNIT_TO_HAND","timing":"on_enter","parameters":{"count":1,"level_exact":1,"ownership_changes":true}},
+    {"mechanic_id":"CORE-U14","kind":"unit","level":3,"copies":2,"effect_id":"TAKE_UNIT_TO_CONTROLLED_AREA","timing":"on_enter","parameters":{"count":1,"level_exact":1,"ownership_changes":true,"destination_requires_space":true}},
+    {"mechanic_id":"CORE-U15","kind":"unit","level":4,"copies":2,"effect_id":"RETURN_MULTIPLE_UNITS","timing":"on_enter","parameters":{"count":2,"level_max":2,"exact_count":true,"same_area_not_required":true}},
+    {"mechanic_id":"CORE-U16","kind":"unit","level":4,"copies":2,"effect_id":"DEFEAT_UNIT_BY_LEVEL","timing":"on_enter","parameters":{"count":1,"level_max":3}},
+    {"mechanic_id":"CORE-U17","kind":"unit","level":4,"copies":2,"effect_id":"RETURN_UNIT_BY_LEVEL","timing":"on_enter","parameters":{"count":1,"level_max":4}},
+    {"mechanic_id":"CORE-U18","kind":"unit","level":5,"copies":1,"effect_id":"PLAY_EXTRA_UNIT","timing":"on_enter","parameters":{"count":1,"normal_enter_effects":true}},
+    {"mechanic_id":"CORE-U19","kind":"unit","level":5,"copies":1,"effect_id":"IMMEDIATE_ATTACK","timing":"on_enter","parameters":{"count":1,"normal_attack_rules":true}},
+    {"mechanic_id":"CORE-E01","kind":"effect","level":null,"copies":1,"effect_id":"SOCIAL_CALL_TAKE_UNIT","timing":"main_action","parameters":{"count":1,"target":"responding_player_unit","ownership_changes":true}},
+    {"mechanic_id":"CORE-E02","kind":"effect","level":null,"copies":1,"effect_id":"CANCEL_EFFECT","timing":"response","parameters":{"count":1,"target":"effect_card_resolution"}},
+    {"mechanic_id":"CORE-E03","kind":"effect","level":null,"copies":1,"effect_id":"TAKE_UNIT_TO_HAND","timing":"main_action","parameters":{"count":1,"ownership_changes":true}},
+    {"mechanic_id":"CORE-E04","kind":"effect","level":null,"copies":1,"effect_id":"PROTECT_AREA","timing":"main_action","parameters":{"count":1,"scope":"attack_and_prohibited_effect_targets","duration":"until_next_turn_start"}}
+  ],
+  "areas": [
+    {"group_id":"GROUP-01","area_id":"AREA-01"},{"group_id":"GROUP-01","area_id":"AREA-02"},{"group_id":"GROUP-01","area_id":"AREA-03"},
+    {"group_id":"GROUP-02","area_id":"AREA-01"},{"group_id":"GROUP-02","area_id":"AREA-02"},{"group_id":"GROUP-02","area_id":"AREA-03"},
+    {"group_id":"GROUP-03","area_id":"AREA-01"},{"group_id":"GROUP-03","area_id":"AREA-02"},{"group_id":"GROUP-03","area_id":"AREA-03"},
+    {"group_id":"GROUP-04","area_id":"AREA-01"},{"group_id":"GROUP-04","area_id":"AREA-02"},{"group_id":"GROUP-04","area_id":"AREA-03"}
+  ]
+}
