@@ -33,12 +33,28 @@
 
 ## 唯一数据源
 
+机制卡表：
+
 ```text
 data/core_set.json
 data/expansion_1.json
 ```
 
-Markdown卡表只作人类可读说明，若与JSON冲突，以JSON为准。
+AI优先级：
+
+```text
+data/ai_priorities.json
+```
+
+当前测试基线：
+
+```text
+data/baselines/current_formal.json
+data/baselines/current_dual_modes.json
+data/baselines/schema.json
+```
+
+Markdown文件只作人类可读说明，若与对应JSON冲突，以JSON为准。
 
 ## 文件列表
 
@@ -73,16 +89,19 @@ AI卡牌优先级模型.md
 7. `标准组件模型.md`
 8. `data/core_set.json`
 9. `data/expansion_1.json`
-10. `通用标准版卡表.md`
-11. `通用扩展包卡表.md`
-12. `双人模式参数.md`
-13. `数学与平衡模型.md`
-14. `技能强度评分系统.md`
-15. `AI卡牌优先级模型.md`
-16. `战斗方案评分模型.md`
-17. `测试与验证规范.md`
-18. `当前测试基线.md`
-19. `迁移来源记录.md`
+10. `data/ai_priorities.json`
+11. `通用标准版卡表.md`
+12. `通用扩展包卡表.md`
+13. `双人模式参数.md`
+14. `数学与平衡模型.md`
+15. `技能强度评分系统.md`
+16. `AI卡牌优先级模型.md`
+17. `战斗方案评分模型.md`
+18. `测试与验证规范.md`
+19. `data/baselines/current_formal.json`
+20. `data/baselines/current_dual_modes.json`
+21. `当前测试基线.md`
+22. `迁移来源记录.md`
 
 ## 维护原则
 
@@ -91,5 +110,5 @@ AI卡牌优先级模型.md
 - 通用机制只在本层维护。
 - 具体表达不得反向写入通用层。
 - 三套评分系统必须独立维护。
-- 通用规则变化必须同步更新卡表、测试规范和当前测试基线。
+- 通用规则变化必须同步更新卡表、AI优先级、测试规范和当前测试基线。
 - 来源记录只用于说明当前内容的抽取来源，不保存旧版本正文。
