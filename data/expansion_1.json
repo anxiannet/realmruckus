@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "rules_version": "V1.3",
+  "deck_version": "GEN-EXP-001",
+  "deck_id": "expansion-1",
+  "requires": ["GEN-CORE-001"],
+  "cards": [
+    {"mechanic_id":"EXP1-U01","kind":"unit","level":1,"copies":1,"effect_id":"DRAW_CARDS","timing":"on_enter","parameters":{"count":1}},
+    {"mechanic_id":"EXP1-U02","kind":"unit","level":1,"copies":1,"effect_id":"DRAW_CARDS","timing":"on_enter","parameters":{"count":1}},
+    {"mechanic_id":"EXP1-U03","kind":"unit","level":2,"copies":1,"effect_id":"FORCE_OTHER_PLAYER_DISCARD","timing":"on_enter","parameters":{"target":"another_player","count":1,"target_chooses":true}},
+    {"mechanic_id":"EXP1-U04","kind":"unit","level":2,"copies":1,"effect_id":"FORCE_OTHER_PLAYER_DISCARD","timing":"on_enter","parameters":{"target":"another_player","count":1,"target_chooses":true}},
+    {"mechanic_id":"EXP1-U05","kind":"unit","level":3,"copies":2,"effect_id":"CONDITIONAL_DRAW","timing":"on_enter","parameters":{"required_mechanic_id":"CORE-U18","count":2}},
+    {"mechanic_id":"EXP1-U06","kind":"unit","level":4,"copies":2,"effect_id":"PAY_DISCARD_RETURN_UNIT","timing":"on_enter","parameters":{"cost_discard":1,"count":1,"level_limit":null}},
+    {"mechanic_id":"EXP1-U07","kind":"unit","level":5,"copies":1,"effect_id":"DEFEAT_LOW_LEVEL_UNITS_IN_AREA","timing":"on_enter","parameters":{"target_area":"any_controlled_area","levels":[1,2],"protected_area_illegal":true}},
+    {"mechanic_id":"EXP1-E01","kind":"effect","level":null,"copies":1,"effect_id":"RETURN_ALL_UNITS_IN_AREA","timing":"main_action","parameters":{"target_area":"any_controlled_area","protected_area_illegal":true}}
+  ]
+}
