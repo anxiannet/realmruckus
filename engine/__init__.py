@@ -12,7 +12,8 @@ from .combat import generate_attack_results, resolve_attack, resolve_duel
 from .data import CardDefinition, DeckDefinition, combine_decks, load_deck, validate_deck
 from .effects import EffectContext, execute_effect, registered_effect_ids
 from .factory import create_card_instances, create_deck_instances
-from .models import Area, AttackResult, CardInstance, EffectCard, Unit
+from .game import GameEngine
+from .models import Area, AttackResult, CardInstance, EffectCard, GameResult, Unit
 from .state import GameState
 from .turns import TurnPhase, TurnState, phase_order
 
@@ -27,6 +28,8 @@ __all__ = [
     "DeployAction",
     "EffectCard",
     "EffectContext",
+    "GameEngine",
+    "GameResult",
     "GameState",
     "PassAction",
     "TurnPhase",
