@@ -404,7 +404,7 @@ def protect_area(definition: CardDefinition, context: EffectContext) -> bool:
     area = context.selected_area
     if area is None or area.owner != context.actor:
         return False
-    area.protected = True
+    area.protect_until_owner_turn(context.actor)
     return True
 
 
