@@ -1,136 +1,53 @@
 # 通用AI卡牌优先级模型
 
-版本：GEN-AI-PRIORITY-001  
 生效日期：2026-07-14
 
 ## 一、文件定位
 
-本文件定义AI在非战斗决策中的卡牌优先级模型，用于：
+本文件只迁移当前源代码中已经存在的AI卡牌排序与区域需求逻辑。
 
-- 选择保留哪张牌；
-- 选择弃掉哪张牌；
-- 选择额外部署哪张单位牌；
-- 从弃牌堆或牌库顶选择哪张牌；
-- 选择效果目标；
-- 在多个合法区域中选择部署目的地。
+不新增：
 
-本模型不等同于技能理论强度评分，也不等同于战斗方案评分。
+- 新权重；
+- 情景标签；
+- 动态修正；
+- 新评分公式；
+- 新AI策略。
 
-## 二、当前数据源
+## 二、当前源逻辑
 
-```text
-data/ai_priorities.json
-```
+当前源代码使用静态卡牌优先级，并结合等级进行二级排序。
 
-该文件是当前每个 `mechanic_id` 的：
-
-- `ai_base_priority`
-- `situational_tags`
-- 动态局面修正
-
-的唯一数据来源。
-
-禁止以具体卡名作为权重键。
-
-## 三、通用数据字段
+通用表达：
 
 ```text
-mechanic_id
-ai_base_priority
-situational_tags
+(level, ai_priority)
 ```
 
-当前常用标签包括：
+### 选择较高价值卡牌
 
 ```text
-DRAW
-DISCARD
-RETURN
-DEFEAT
-TAKE_CONTROL
-EXTRA_DEPLOY
-IMMEDIATE_ATTACK
-CANCEL
-PROTECT
-RECOVER
-INFORMATION
-AREA_RESET
-WIN_PROGRESS
-RESOURCE_SWING
-ACTION_ECONOMY
+max(cards, key=(level, ai_priority))
 ```
 
-## 四、基础优先级
+用于当前源实现中的：
 
-`ai_base_priority` 是独立整数排序值，当前范围为0–100。
+- 单位牌选择；
+- 公开候选牌选择；
+- 弃牌堆合法候选选择；
+- 部分目标选择。
 
-它表达AI在普通局面下对卡牌的保留和使用倾向，不代表技能理论强度。
-
-基础排序原则：
-
-1. 能直接影响胜利进度的机制优先。
-2. 能处理任意等级目标的机制高于低等级限制机制。
-3. 形成所有权变化的机制高于单纯返回手牌。
-4. 立即额外行动高于普通信息收益。
-5. 取消和保护等反制机制根据当前合法目标动态修正。
-6. 纯信息机制通常低于直接场面与资源机制。
-
-## 五、手牌保留与弃牌
-
-基础二级排序：
+### 选择弃牌
 
 ```text
-(level, ai_base_priority)
+min(hand, key=(level, ai_priority))
 ```
 
-### 弃牌选择
+即优先弃掉等级较低、同等级中优先级较低的卡牌。
 
-```text
-discard_candidate
-= min(hand, key=(level, ai_base_priority))
-```
+## 三、区域需求公式
 
-动态弃牌评分：
-
-```text
-discard_score
-= level_weight
-+ ai_base_priority
-+ current_legality_bonus
-+ win_relevance_bonus
-+ defensive_need_bonus
-```
-
-弃牌时选择最低分。
-
-### 最佳单位选择
-
-```text
-best_unit
-= max(unit_cards, key=(level, ai_base_priority))
-```
-
-用于额外部署、普通部署和牌库顶选择。
-
-## 六、当前动态修正
-
-当前数据源定义：
-
-```text
-无合法目标：-1000
-可立即获胜：+200
-可阻止对手立即获胜：+100
-当前防守不足且该牌可补强：+30
-手牌超限弃牌压力：-10
-组合条件满足：+20
-组合条件未满足：-20
-```
-
-动态修正只改变当前局面的AI决策，不改变卡牌的理论技能强度评分。
-
-## 七、区域需求评分
-
-当前公式：
+当前源公式：
 
 ```text
 area_need_score
@@ -138,72 +55,34 @@ area_need_score
 + (max_units_per_area - current_units)
 ```
 
-含义：
+其中：
 
-- 已控制同组区域越多，继续向该组部署的价值越高；
-- 当前区域空位越多，部署空间越充足。
+- `same_group_controlled_count`：当前玩家已控制的同组区域数量；
+- `max_units_per_area`：每个区域驻军上限；
+- `current_units`：目标区域当前驻军数量。
 
-## 八、目标选择
+该公式只用于比较当前区域需求，不评价技能理论强度。
 
-### 单位目标
+## 四、社交回应概率
 
-优先处理高价值单位时：
-
-```text
-target_value
-= level
-+ ai_base_priority / priority_scale
-```
-
-常用排序：
-
-```text
-max(targets, key=(level, ai_base_priority))
-```
-
-机制要求随机目标时，必须在合法目标中随机选择，不得使用隐藏信息优化。
-
-### 区域目标
-
-保护己方区域时：
-
-```text
-max(own_areas, key=(same_group_controlled_count, total_unit_level))
-```
-
-攻击或移除敌方单位时，必须先过滤受保护区域和非法目标。
-
-## 九、牌库顶与弃牌堆选择
-
-公开候选选择：
-
-```text
-max(candidates, key=(level, ai_base_priority))
-```
-
-指定等级弃牌堆回收：
-
-```text
-max(legal_candidates, key=ai_base_priority)
-```
-
-## 十、社交回应概率
+当前源实现：
 
 | AI模式 | 回应概率 |
 |---|---:|
 | pressure | 0.50 |
 | human_like | 0.35 |
 
-- 只用于需要另一玩家回应的效果；
-- AI不得查看隐藏信息后再决定是否回应。
+该概率只用于需要其他玩家回应的效果。
 
-## 十一、部署前与进攻前判断
+## 五、部署倾向
 
-以下情况倾向先部署：
+当前源实现中，以下局面倾向优先部署：
 
 1. 当前没有控制区域；
-2. 总驻军数量不高于已控制区域数量；
+2. 当前总驻军数量不高于已控制区域数量；
 3. 已控制同组至少2个区域，且存在驻军少于2个的区域。
+
+通用表达：
 
 ```text
 if no_controlled_area:
@@ -214,34 +93,37 @@ elif near_group_win and weakly_defended_area_exists:
     prefer_deploy
 ```
 
-## 十二、与技能强度评分的关系
+## 六、静态优先级迁移状态
+
+源代码中的静态优先级以具体卡名为键。
+
+迁移到通用层时，必须先建立经过核对的：
 
 ```text
-AI优先级
-= 基础机制优先级
-+ 当前合法性
-+ 胜利相关性
-+ 防守需求
-+ 手牌结构
+具体卡名
+→ mechanic_id
 ```
 
-`ai_base_priority` 可以参考技能强度，但不能直接等于技能强度评分。
+一一映射，然后才能把原数值等价转写为：
 
-## 十三、当前完成状态
+```text
+mechanic_id
+ai_priority
+```
 
-已完成：
+在该映射逐项核对完成前，不建立新的通用优先级数据文件，也不自行分配数值。
 
-- 全部标准版与扩展包 `mechanic_id` 的基础优先级；
-- 全部机制的情景标签；
-- 当前动态修正表；
-- 区域需求、手牌排序、目标选择和社交回应规则。
+## 七、系统边界
 
-尚需后续验证：
+```text
+AI卡牌优先级
+≠ 技能强度评分
+≠ 战斗方案评分
+```
 
-- 使用当前正式测试结果校准优先级；
-- 与后续完整通用引擎的接口验证。
+本文件只迁移源AI当前已经存在的排序逻辑。
 
-## 十四、来源追溯
+## 八、来源追溯
 
 当前源文件：
 
@@ -257,17 +139,16 @@ AI优先级
 57f102edcd865122c67946fd2f4c35e65fc89123
 ```
 
-抽取内容：
+迁移内容：
 
-- 当前静态优先级顺序；
+- 静态优先级的用途；
 - 等级与优先级二级排序；
-- 区域需求评分；
+- 区域需求公式；
 - 社交回应概率；
-- 部署和目标选择逻辑。
+- 当前部署倾向。
 
-排除内容：
+未迁移内容：
 
 - 具体卡名；
-- 具体地名和分组名；
-- 具体产品输出文本；
-- 被当前版本替代的参数。
+- 未核对的 `mechanic_id` 对应关系；
+- 任何新权重或新修正。
