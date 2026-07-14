@@ -13,17 +13,24 @@
 
 | 内容 | 唯一来源 |
 |---|---|
-| 当前项目状态 | `当前项目记忆.md` |
-| 核心规则 | `规则/V1.3-核心规则.md` |
-| 标准版卡牌数量、星级、类型与机制文案 | `规则/V1.3-基础卡表.md` |
-| 通用换皮与卡号规则 | `规范流程/换皮与卡号规范.md` |
-| 通用视觉边界 | `规范流程/视觉总规范.md` |
-| 通用UI、尺寸与印刷规范 | `规范流程/UI规范.md` |
-| 插画生产与审核流程 | `规范流程/插画审核流程.md` |
+| 当前项目进度 | `当前项目进度.md` |
+| 核心规则 | 原项目 `规则/V1.3-核心规则.md` |
+| 标准版卡牌数量、星级、类型与机制文案 | 原项目 `规则/V1.3-基础卡表.md` |
+| 通用换皮与卡号规则 | 原项目 `规范流程/换皮与卡号规范.md` |
+| 通用视觉边界 | 原项目 `规范流程/视觉总规范.md` |
+| 通用UI、尺寸与印刷规范 | 原项目 `规范流程/UI规范.md` |
+| 插画生产与审核流程 | 原项目 `规范流程/插画审核流程.md` |
+
+原项目：
+
+```text
+https://github.com/anxiannet/qiangdipan
+```
 
 ## 当前目录文件
 
 ```text
+当前项目进度.md
 Realm Ruckus主题方案.md
 Realm Ruckus世界观规范.md
 Realm Ruckus品牌检索记录.md
@@ -44,6 +51,7 @@ Realm Ruckus制作与审核流程.md
 
 | 文件 | 职责 |
 |---|---|
+| 当前项目进度 | 当前阶段、已完成、待办、阻塞项和进度维护规则 |
 | 主题方案 | 产品定位、基础命名、宣传语和总体方向 |
 | 世界观规范 | 世界运行逻辑、四Realm、文化边界和命名原则 |
 | 品牌检索记录 | 名称含义、同名作品初筛、品牌风险和商标后续工作 |
@@ -61,40 +69,25 @@ Realm Ruckus制作与审核流程.md
 
 ## 读取顺序
 
-1. `Realm Ruckus主题方案.md`
-2. `Realm Ruckus世界观规范.md`
-3. `Realm Ruckus品牌检索记录.md`
-4. `Realm Ruckus品牌与Logo规范.md`
-5. `Realm Ruckus标准版卡表.md`
-6. `Realm Ruckus英文核心规则.md`
-7. `Realm Ruckus英文游戏手册.md`
-8. `Realm Ruckus英文指南卡.md`
-9. `Realm Ruckus视觉与UI规范.md`
-10. `视觉锚点/Realm Ruckus-整套卡牌视觉锚点海报-v1.png`
-11. `视觉锚点/Realm Ruckus视觉锚点说明.md`
-12. `Realm Ruckus单卡美术方案.md`
-13. `Realm Ruckus包装规范.md`
-14. `Realm Ruckus制作与审核流程.md`
+1. `当前项目进度.md`
+2. `Realm Ruckus主题方案.md`
+3. `Realm Ruckus世界观规范.md`
+4. `Realm Ruckus品牌检索记录.md`
+5. `Realm Ruckus品牌与Logo规范.md`
+6. `Realm Ruckus标准版卡表.md`
+7. `Realm Ruckus英文核心规则.md`
+8. `Realm Ruckus英文游戏手册.md`
+9. `Realm Ruckus英文指南卡.md`
+10. `Realm Ruckus视觉与UI规范.md`
+11. `视觉锚点/Realm Ruckus-整套卡牌视觉锚点海报-v1.png`
+12. `视觉锚点/Realm Ruckus视觉锚点说明.md`
+13. `Realm Ruckus单卡美术方案.md`
+14. `Realm Ruckus包装规范.md`
+15. `Realm Ruckus制作与审核流程.md`
 
-## 当前状态
+## 进度维护要求
 
-```text
-主题名称：Realm Ruckus
-宣传语：Monsters. Mischief. Total Takeover.
-建议卡号前缀：RRK
-规则基线：V1.3
-品牌公开初筛：已完成，未发现明显完全同名游戏；正式商标清查未完成
-品牌与Logo规范：已建立，最终矢量Logo待制作
-世界观规范：已建立
-英文规则：已建立
-英文游戏手册：已建立
-英文指南卡：已建立
-英文派生卡表：已建立，正式RRK卡号待分配
-视觉与UI规范：已建立
-当前视觉锚点：视觉锚点/Realm Ruckus-整套卡牌视觉锚点海报-v1.png
-视觉锚点印刷状态：仅作方向参考，非CMYK印刷母版
-逐卡美术需求：已建立，成品插画待制作
-包装规范：已建立，正式刀模与法律信息待确认
-制作审核流程：已建立
-当前阶段：可进入最终英文命名复核、Logo矢量化、UI原型与首批插画制作；批量印刷前完成正式商标清查和CMYK实体打样
-```
+- 每次完成项目任务后，必须更新 `当前项目进度.md`。
+- 本README只维护目录、职责和读取顺序，不维护具体项目进度。
+- 总指令只规定进度更新义务，不写入当前阶段、已完成事项或待办清单。
+- 任何进度判断均以GitHub当前文件和 `当前项目进度.md` 为准。
