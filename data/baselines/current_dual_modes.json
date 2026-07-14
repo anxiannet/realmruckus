@@ -2,16 +2,20 @@
   "schema_version": "1.0",
   "rules_version": "V1.3",
   "baseline_version": "GEN-BASELINE-DUAL-001",
+  "source_file": "规则/双人快速局可选规则.md",
+  "source_sha": "7aad98c328c14ef6132f5b8eee0e65660acea858",
   "model": "human_like",
   "players": 2,
   "games_per_configuration": 3000,
   "seed": 20260714,
-  "total_games": 12000,
+  "total_games": 18000,
   "configurations": [
     {"deck":"core","deck_size":40,"mode":"quick","area_count":6,"center_size":2,"direct_win_rate":1.0000,"timeout_rate":0.0000,"average_turns":9.36,"median_turns":7,"p90_turns":18,"deck_exhaustion_rate":0.0080,"average_successful_attacks":1.31,"average_area_returns":1.50},
     {"deck":"core","deck_size":40,"mode":"standard","area_count":9,"center_size":2,"direct_win_rate":0.9837,"timeout_rate":0.0073,"average_turns":20.94,"median_turns":17,"p90_turns":38,"deck_exhaustion_rate":0.1813,"average_successful_attacks":4.23,"average_area_returns":3.74},
+    {"deck":"core","deck_size":40,"mode":"full","area_count":12,"center_size":3,"direct_win_rate":0.9617,"timeout_rate":0.0143,"average_turns":26.57,"median_turns":21,"p90_turns":50,"deck_exhaustion_rate":0.2970,"average_successful_attacks":5.85,"average_area_returns":4.94},
     {"deck":"core_plus_expansion_1","deck_size":50,"mode":"quick","area_count":6,"center_size":2,"direct_win_rate":0.9990,"timeout_rate":0.0010,"average_turns":10.70,"median_turns":8,"p90_turns":20,"deck_exhaustion_rate":0.0067,"average_successful_attacks":1.29,"average_area_returns":2.82},
-    {"deck":"core_plus_expansion_1","deck_size":50,"mode":"standard","area_count":9,"center_size":2,"direct_win_rate":0.9737,"timeout_rate":0.0100,"average_turns":23.30,"median_turns":18,"p90_turns":44,"deck_exhaustion_rate":0.1283,"average_successful_attacks":4.48,"average_area_returns":5.74}
+    {"deck":"core_plus_expansion_1","deck_size":50,"mode":"standard","area_count":9,"center_size":2,"direct_win_rate":0.9737,"timeout_rate":0.0100,"average_turns":23.30,"median_turns":18,"p90_turns":44,"deck_exhaustion_rate":0.1283,"average_successful_attacks":4.48,"average_area_returns":5.74},
+    {"deck":"core_plus_expansion_1","deck_size":50,"mode":"full","area_count":12,"center_size":3,"direct_win_rate":0.9490,"timeout_rate":0.0183,"average_turns":29.77,"median_turns":23,"p90_turns":55,"deck_exhaustion_rate":0.2353,"average_successful_attacks":6.18,"average_area_returns":7.17}
   ],
   "current_defaults": {
     "quick":{"area_count":6,"center_size":2},
