@@ -54,6 +54,15 @@ class Area:
     owner: Optional[int] = None
     units: list[Unit] = field(default_factory=list)
     protected: bool = False
+    protection_owner: Optional[int] = None
+
+    def protect_until_owner_turn(self, player: int) -> None:
+        self.protected = True
+        self.protection_owner = player
+
+    def clear_protection(self) -> None:
+        self.protected = False
+        self.protection_owner = None
 
 
 @dataclass(frozen=True)
@@ -65,3 +74,12 @@ class AttackResult:
     defender_defeated: tuple[Unit, ...] = ()
     attack_order: tuple[str, ...] = ()
     target_order: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
+class GameResult:
+    winner: int | None
+    reason: str
+    turns: int
+    deck_exhausted: bool
+    settlement: bool = False
